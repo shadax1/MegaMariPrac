@@ -1,0 +1,14 @@
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.csproj.AssemblyReference.cache
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.csproj.SuggestedBindingRedirects.cache
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.Properties.Resources.resources
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.csproj.GenerateResource.cache
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.csproj.CoreCompileInputs.cache
+C:\Users\mika\source\repos\MegaMariPrac\bin\Debug\MegaMariPrac.exe.config
+C:\Users\mika\source\repos\MegaMariPrac\bin\Debug\MegaMariPrac.exe
+C:\Users\mika\source\repos\MegaMariPrac\bin\Debug\MegaMariPrac.pdb
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.exe
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.pdb
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.SaveStateName.resources
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.MainForm.resources
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.AboutBox.resources
+C:\Users\mika\source\repos\MegaMariPrac\obj\Debug\MegaMariPrac.HotkeyDialog.resources
