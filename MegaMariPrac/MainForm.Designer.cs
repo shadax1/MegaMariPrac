@@ -882,8 +882,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
-            this.Text = "MegaMariPrac v0.9";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Text = "MegaMariPrac v0.91";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
