@@ -143,7 +143,6 @@
   <ItemGroup>
     <Content Include="alice_icon.ico" />
     <Content Include="Resources\alice_icon.png" />
-    <None Include="README.md" />
     <None Include="Resources\cirno_on_marisa.png" />
     <None Include="Resources\eirin_on_marisa.png" />
     <None Include="Resources\reimu_on_marisa.png" />
@@ -165,7 +164,6 @@
     <None Include="Resources\doubletank.png" />
     <None Include="Resources\etank.png" />
     <None Include="Resources\startank.png" />
-    <Content Include="todo.txt" />
     <None Include="Resources\yuyuko_off.png" />
     <None Include="Resources\youmu_off.png" />
     <None Include="Resources\sakuya_off.png" />
