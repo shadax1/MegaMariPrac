@@ -1,14 +1,16 @@
 ﻿# MegaMariPrac
-Speedrun practice tool for MegaMari. This project is heavily based off mpu's [RKS/F practice tool](https://github.com/mpumpu/rkshacks).
+Speedrun practice tool for MegaMari. This project is heavily based off mpu's [RKS/F practice tool](https://github.com/mpumpu/rkshacks/releases).
 
 ![demo](MegaMariPrac/Resources/demo.png)
 
 ## How to use
 Download the latest release [here](https://github.com/shadax1/MegaMariPrac/releases) and add the .exe file into your MegaMari game folder. Start the game followed by the practice tool and you will be good to go.
 
+**Note:** the practice tool only works with the Japanese version of the game. It should be the one named `megamari.exe`.
+
 ## Known issues
 + loading save states may sometimes make the character slowly zip into the ground
-+ the following hotkeys are not working as expected yet and will be fixed in 1.00:
++ the following hotkeys are not working as expected yet and will (hopefully) be fixed in version 1.0:
 	+ load next stage
 	+ load next save state
 
