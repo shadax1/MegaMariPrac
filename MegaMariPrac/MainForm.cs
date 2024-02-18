@@ -14,7 +14,6 @@ namespace MegaMariPrac
         #region global variables
         static string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string configpath = appdata + @"\MegaMariPrac\";
-        string configfilename = "config.cfg";
         string hotkeyfilename = "hotkey.cfg";
         string savestatesfilename = "savestates.cfg";
 
@@ -123,17 +122,6 @@ namespace MegaMariPrac
             if (!Directory.Exists(appdata + @"\MegaMariPrac"))
                 Directory.CreateDirectory(appdata + @"\MegaMariPrac");
 
-            string x, y;
-            if (File.Exists(configpath + configfilename)) //checks if config.cfg exists
-            {
-                using (StreamReader sr = File.OpenText(configpath + configfilename))
-                {
-                    x = sr.ReadLine();
-                    y = sr.ReadLine();
-                }
-                Location = new Point(int.Parse(x), int.Parse(y)); //places the app at the same position it was in the last time
-            }
-
             toolTip.AutoPopDelay = 20000; toolTip.InitialDelay = 200; toolTip.ReshowDelay = 100;
             toolTip.ShowAlways = true; //force the ToolTip text to be displayed whether or not the form is active
             toolTip.SetToolTip(checkFreezeAll, "Checks all weapon checkboxes below and forces ammo for all of them at maximum.");
@@ -216,15 +204,6 @@ namespace MegaMariPrac
             new Thread(ManageControls) { IsBackground = true }.Start();
             //this thread will read values from the game
             new Thread(ReadValues) { IsBackground = true }.Start();
-        }
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            using (StreamWriter sw = File.CreateText(configpath + configfilename)) //saving application's position upon closing
-            {
-                sw.WriteLine(Location.X);
-                sw.WriteLine(Location.Y);
-            }
         }
         #endregion
 
@@ -768,11 +747,22 @@ namespace MegaMariPrac
         {
             //fast respawn
             int checkpoint = pm.Read(FIRST_OFFSET, CHECKPOINT_OFFSET)[0];
-            switch (checkpoint)
+            if (stageID != PATCHY_6)
             {
-                case CHECKPOINT_START: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT }); break;
-                case CHECKPOINT: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT_BOSS }); break;
-                case CHECKPOINT_BOSS: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT_START }); break;
+                switch (checkpoint)
+                {
+                    case CHECKPOINT_START: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT }); break;
+                    case CHECKPOINT: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT_BOSS }); break;
+                    case CHECKPOINT_BOSS: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT_START }); break;
+                }
+            }
+            else //patchy 6 stage only has 2 checkpoints
+            {
+                switch (checkpoint)
+                {
+                    case CHECKPOINT_START: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT }); break;
+                    case CHECKPOINT: pm.Write(FIRST_OFFSET, CHECKPOINT_OFFSET, new byte[1] { CHECKPOINT_START }); break;
+                }
             }
             pm.Write(FIRST_OFFSET, LIVES_OFFSET, BitConverter.GetBytes(3));
             pm.WriteStatic(STATE, BitConverter.GetBytes(DEAD));
@@ -894,7 +884,7 @@ namespace MegaMariPrac
         private void WriteDefaultHotkeyConfig()
         {
             TextWriter writer = new StreamWriter(configpath + hotkeyfilename);
-            writer.WriteLine(hotkeyVersion + "\nLAlt\nD1\nLAlt\nD2\nLAlt\nD3\nLAlt\nD4\nLAlt\nD5\nLAlt\nD6");
+            writer.WriteLine(hotkeyVersion + "\nLAlt\n1\nLAlt\n2\nLAlt\n3\nLAlt\n4\nLAlt\n5\nLAlt\n6");
             writer.Close();
         }
 
