@@ -15,15 +15,8 @@ namespace MegaMariPrac
             Process[] pname = Process.GetProcessesByName("megamari");
             if (pname.Length == 0)
             {
-                try
-                {
-                    Process.Start("megamari.exe");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("megamari.exe wasn't found, make sure MegaMariPrac.exe is in the same location as megamari.exe.", "Marisa not found");
-                    Environment.Exit(1);
-                }
+                MessageBox.Show("The megamari.exe process wasn't found, make sure the game is open first.", "Marisa not found");
+                Environment.Exit(1);
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
